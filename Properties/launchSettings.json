@@ -3,7 +3,7 @@
     "Terraria": {
       "commandName": "Executable",
       "executablePath": "$(DotNetName)",
-      "commandLineArgs": "$(tMLPath)",
+      "commandLineArgs": "$(tMLPath) -skipselect \"dev-spellcrafting:dev-classic\"",
       "workingDirectory": "$(tMLSteamPath)"
     },
     "TerrariaServer": {
