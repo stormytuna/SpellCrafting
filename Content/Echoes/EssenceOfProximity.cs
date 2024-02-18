@@ -1,4 +1,5 @@
 using SpellCrafting.DataStructures;
+using SpellCrafting.ModTypes;
 using Terraria;
 
 namespace SpellCrafting.Content.Echoes;

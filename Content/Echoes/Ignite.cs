@@ -1,5 +1,6 @@
 using System;
 using SpellCrafting.DataStructures;
+using SpellCrafting.ModTypes;
 using Terraria;
 using Terraria.ID;
 

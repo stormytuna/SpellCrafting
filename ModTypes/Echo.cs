@@ -1,9 +1,12 @@
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using SpellCrafting.Content.Echoes;
 using SpellCrafting.DataStructures;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace SpellCrafting.Content.Echoes;
+namespace SpellCrafting.ModTypes;
 
 public abstract class Echo : ModType, ILocalizedModType
 {
@@ -11,7 +14,9 @@ public abstract class Echo : ModType, ILocalizedModType
 
     public int Type { get; private set; }
 
-    public virtual LocalizedText DisplayName => this.GetLocalization("", PrettyPrintName);
+    public virtual LocalizedText DisplayName => this.GetLocalization(nameof(DisplayName), PrettyPrintName);
+    public virtual LocalizedText Description => this.GetLocalization(nameof(Description), PrettyPrintName);
+    public virtual Asset<Texture2D> Icon => ModContent.Request<Texture2D>("SpellCrafting/Assets/Textures/EchoIconTemplate");
 
     public string LocalizationCategory => "Echoes";
 

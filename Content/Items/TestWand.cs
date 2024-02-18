@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using SpellCrafting.Content.Echoes;
+using SpellCrafting.ModTypes;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,6 +8,8 @@ namespace SpellCrafting.Content.Items;
 
 public class TestWand : ModItem
 {
+    public List<Echo> ActiveSpell { get; set; } = new();
+
     public override string Texture => $"Terraria/Images/Item_{ItemID.WandofSparking}";
 
     public override void SetDefaults() {
@@ -21,12 +23,7 @@ public class TestWand : ModItem
     }
 
     public override bool? UseItem(Player player) {
-        List<Echo> echoesToCast = new() {
-            new EssenceOfSelf(),
-            new Number(10f),
-            new Ignite()
-        };
-        EchoLoader.CastSpell(echoesToCast, player);
+        EchoLoader.CastSpell(ActiveSpell, player);
 
         return true;
     }

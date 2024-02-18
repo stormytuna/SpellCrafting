@@ -3,7 +3,7 @@ using SpellCrafting.DataStructures;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace SpellCrafting.Content.Echoes;
+namespace SpellCrafting.ModTypes;
 
 public static class EchoLoader
 {

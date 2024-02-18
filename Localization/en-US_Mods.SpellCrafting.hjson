@@ -4,3 +4,11 @@ Items: {
 		Tooltip: ""
 	}
 }
+
+Echoes: {
+	EssenceOfProximity.DisplayName: Essence Of Proximity
+	EssenceOfSelf.DisplayName: Essence Of Self
+	Ignite.DisplayName: Ignite
+}
+
+UI.BlankEcho.DisplayName: Blank
