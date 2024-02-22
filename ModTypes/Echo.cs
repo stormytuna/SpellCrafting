@@ -32,4 +32,6 @@ public abstract class Echo : ModType, ILocalizedModType
     public override string ToString() => Name;
 
     public virtual bool ApplyToStack(SpellStack spellStack, Player caster) => true;
+
+    public virtual Echo Clone() => (Echo)MemberwiseClone();
 }

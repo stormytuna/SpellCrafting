@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.GameInput;
 using Terraria.UI;
 
 namespace SpellCrafting.Helpers;
@@ -21,6 +22,12 @@ public static class UIHelper
     public static void TryPreventMouseInteraction(this UIElement element) {
         if (element.ContainsPoint(Main.MouseScreen)) {
             Main.LocalPlayer.mouseInterface = true;
+        }
+    }
+
+    public static void TryPreventScrollWheelInteraction(this UIElement element) {
+        if (element.IsMouseHovering) {
+            PlayerInput.LockVanillaMouseScroll($"{nameof(SpellCrafting)}:{element.GetType().Name}");
         }
     }
 }
