@@ -14,6 +14,7 @@ public class WandInscriptionUIState : UIState
 
     public InscriptionPanel InscriptionPanel { get; private set; }
     public EchoesPanel EchoesPanel { get; private set; }
+    public EchoDetailsPanel EchoDetailsPanel { get; private set; }
 
     public override void OnInitialize() {
         InscriptionPanel = new InscriptionPanel {
@@ -31,5 +32,13 @@ public class WandInscriptionUIState : UIState
             Top = StyleDimension.FromPixels(TopSidePadding)
         };
         Append(EchoesPanel);
+
+        EchoDetailsPanel = new EchoDetailsPanel {
+            Width = StyleDimension.FromPixels(400),
+            Height = StyleDimension.FromPixels(500),
+            Left = StyleDimension.FromPixels(LeftSidePadding + InscriptionPanelWidth + 300 + 40),
+            Top = StyleDimension.FromPixels(TopSidePadding)
+        };
+        Append(EchoDetailsPanel);
     }
 }

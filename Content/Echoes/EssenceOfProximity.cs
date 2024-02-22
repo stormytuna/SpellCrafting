@@ -1,4 +1,5 @@
 using SpellCrafting.DataStructures;
+using SpellCrafting.Enums;
 using SpellCrafting.ModTypes;
 using Terraria;
 
@@ -6,6 +7,8 @@ namespace SpellCrafting.Content.Echoes;
 
 public class EssenceOfProximity : Echo
 {
+    public override EchoCategory Category => EchoCategory.Essence;
+
     public override bool ApplyToStack(SpellStack spellStack, Player caster) {
         Entity closestEntity = null;
         float closestEntityDistance = float.PositiveInfinity;

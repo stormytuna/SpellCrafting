@@ -6,9 +6,28 @@ Items: {
 }
 
 Echoes: {
-	EssenceOfProximity.DisplayName: Essence Of Proximity
-	EssenceOfSelf.DisplayName: Essence Of Self
-	Ignite.DisplayName: Ignite
+	EssenceOfProximity: {
+		DisplayName: Essence of Proximity
+		Description: Pops a location vector2, then pushes the essence of the closest entity to that vector2 onto the stack.
+		PopPushInfo: (vector2 -> essence)
+	}
+
+	EssenceOfSelf: {
+		DisplayName: Essence of Self
+		Description: Pushes the essence of the caster (that's you!) onto the stack.
+		PopPushInfo: (null -> essence)
+	}
+
+	Ignite: {
+		DisplayName: Ignite
+		Description: Pops an entity's essence off the stack and ignites that entity. Players and NPCs are set on fire, Projectiles inflict fire damage, Items are destroyed as if by being dropped lava.
+		PopPushInfo: (essence -> null)
+	}
 }
 
 UI.Inscribe: Inscribe
+
+EchoCategories: {
+	Essence: Essence
+	Unique: Unique
+}

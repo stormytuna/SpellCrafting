@@ -1,5 +1,6 @@
 using System;
 using SpellCrafting.DataStructures;
+using SpellCrafting.Enums;
 using SpellCrafting.ModTypes;
 using Terraria;
 using Terraria.ID;
@@ -8,6 +9,8 @@ namespace SpellCrafting.Content.Echoes;
 
 public class Ignite : Echo
 {
+    public override EchoCategory Category => EchoCategory.Unique;
+
     public override bool ApplyToStack(SpellStack spellStack, Player caster) {
         spellStack.TryPopOptional(out float rawMagnitude);
         int magnitude = Math.Clamp((int)MathF.Floor(rawMagnitude), 1, 10);

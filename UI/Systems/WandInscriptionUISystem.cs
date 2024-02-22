@@ -75,6 +75,15 @@ public class WandInscriptionUISystem : ModSystem
         InscribedEchoes = newEchoes;
         Instance.wandInscriptionState.InscriptionPanel.RefreshInscribedEchoes(newEchoes);
     }
+
+    public static void HoveringEcho(Echo echo) {
+        if (echo is null) {
+            Instance.wandInscriptionState.EchoDetailsPanel.HideEchoDetails();
+            return;
+        }
+
+        Instance.wandInscriptionState.EchoDetailsPanel.DisplayEchoDetails(echo);
+    }
 }
 
 public class TestToggleCommand : ModCommand

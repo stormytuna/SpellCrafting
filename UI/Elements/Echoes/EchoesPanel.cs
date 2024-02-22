@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using SpellCrafting.Helpers;
 using SpellCrafting.ModTypes;
+using SpellCrafting.UI.Elements.WandInscription;
 using SpellCrafting.UI.States;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
@@ -20,7 +21,7 @@ public class EchoesPanel : UIPanel
         foreach (Echo echo in EchoLoader.Echoes) {
             EchoUIElement echoUiElement = new(echo) {
                 Width = StyleDimension.Fill,
-                Height = StyleDimension.FromPixels(50)
+                Height = StyleDimension.FromPixels(InscriptionPanel.InscribedEchoHeight)
             };
             allEchoesList.Add(echoUiElement);
         }

@@ -1,5 +1,6 @@
 using SpellCrafting.ModTypes;
 using SpellCrafting.UI.Elements.Echoes;
+using SpellCrafting.UI.Systems;
 using Terraria.UI;
 
 namespace SpellCrafting.UI.Elements.WandInscription;
@@ -25,5 +26,13 @@ public class InscribedEchoUIElement : UIElement
             Left = StyleDimension.FromPixelsAndPercent(-InscribedEchoControlsUIElement.PanelWidth, 1f)
         };
         Append(controls);
+    }
+
+    public override void MouseOver(UIMouseEvent evt) {
+        WandInscriptionUISystem.HoveringEcho(Echo);
+    }
+
+    public override void MouseOut(UIMouseEvent evt) {
+        WandInscriptionUISystem.HoveringEcho(null);
     }
 }

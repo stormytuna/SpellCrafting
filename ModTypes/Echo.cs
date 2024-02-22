@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using SpellCrafting.Content.Echoes;
 using SpellCrafting.DataStructures;
+using SpellCrafting.Enums;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -14,13 +15,22 @@ public abstract class Echo : ModType, ILocalizedModType
 
     public int Type { get; private set; }
 
+    public abstract EchoCategory Category { get; }
+
     public virtual LocalizedText DisplayName => this.GetLocalization(nameof(DisplayName), PrettyPrintName);
-    public virtual LocalizedText Description => this.GetLocalization(nameof(Description), PrettyPrintName);
-    public virtual Asset<Texture2D> Icon => ModContent.Request<Texture2D>("SpellCrafting/Assets/Textures/EchoIconTemplate");
+    public virtual LocalizedText Description => this.GetLocalization(nameof(Description), () => "This is a description, pretty cool right!");
+    public virtual LocalizedText PopPushInfo => this.GetLocalization(nameof(PopPushInfo), () => "(null -> null)");
+    public LocalizedText CategoryText => Language.GetOrRegister($"Mods.SpellCrafting.EchoCategories.{Category}");
+    public virtual Asset<Texture2D> Icon => ModContent.Request<Texture2D>("SpellCrafting/Assets/Textures/EchoIconTemplate", AssetRequestMode.ImmediateLoad);
 
     public string LocalizationCategory => "Echoes";
 
     protected sealed override void Register() {
+        _ = DisplayName;
+        _ = Description;
+        _ = PopPushInfo;
+        _ = CategoryText;
+
         ModTypeLookup<Echo>.Register(this);
         Type = EchoLoader.Add(this);
     }
